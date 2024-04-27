@@ -22,4 +22,9 @@ class Produk extends Model
     {
         return $this->belongsTo(Transaksi::class, 'transaksiID','transaksiID');
     }
+
+    public function Penjualan(): BelongsTo
+    {
+        return $this->belongsTo(Penjualan::class,'penjualanID','penjualanID');
+    }
 }

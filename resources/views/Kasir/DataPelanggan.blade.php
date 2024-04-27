@@ -1,5 +1,5 @@
-@extends('Sidebar')
-@section('Sidebarr')
+@extends('SidebarKasir')
+@section('SidebarCashier')
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
@@ -10,11 +10,11 @@
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
                     <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="page-title mb-0 p-0">Kasir</h3>
+                        <h3 class="page-title mb-0 p-0">Produk</h3>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item active" aria-current="page">Tambah Kasir</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Tambah Produk</li>
                                 </ol>
                             </nav>
                         </div>
@@ -31,26 +31,22 @@
                 
             <div class="container">
                 <div class="card-body">
-                    <form action="{{url('simpanKasir')}}" method="POST" class="row g-3">
+                    <form action="{{url('simpanPelanggan')}}" method="POST" class="row g-3">
                         @csrf
                         <div class="col-md-12">
-                          <label for="namaProduk" class="form-label"><i class="bi bi-person"></i>Nama Kasir</label>
-                          <input type="text" class="form-control" name="nama_kasir">
+                          <label for="namaProduk" class="form-label">Nama Pelanggan</label>
+                          <input type="text" class="form-control" name="nama_pelanggan">
                         </div>
                         <div class="col-12">
-                          <label for="hargaProduk" class="form-label"><i class="bi bi-person-vcard-fill"></i> Username</label>
-                          <input type="text" class="form-control" name="username">
+                          <label for="hargaProduk" class="form-label">Alamat</label>
+                          <input type="text" class="form-control" name="alamat">
                         </div>
                         <div class="col-12">
-                          <label for="stok" class="form-label"><i class="bi bi-lock"></i> Password</label>
-                          <input type="text" class="form-control" name="password">
-                        </div>
-                        <div class="col-12">
-                          <label for="stok" class="form-label"><i class="bi bi-phone"></i>No HP</label>
+                          <label for="stok" class="form-label">No Telpon</label>
                           <input type="text" class="form-control" name="telepon">
                         </div>
                         <div class="col-12">
-                          <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i> Tambah Kasir</button>
+                          <button type="submit" class="btn btn-primary"><i class="bi bi-box-arrow-in-down"></i> Tambah Pelanggan</button>
                         </div>
                       </form>
                       {{-- Table --}}
@@ -58,31 +54,29 @@
                       <table class="table table-responsive">
                         <thead>
                             <tr>
-                                <th>Kasir ID</th>
-                                <th>Nama Kasir</th>
-                                <th>Username Kasir</th>
-                                <th>Password</th>
-                                <th>No Hp</th>
+                                <th>Pelanggan ID</th>
+                                <th>Nama Pelanggan</th>
+                                <th>Alamat</th>
+                                <th>No telepon</th>
                                 <th>#</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($kasir as $k)
+                            @foreach ($pelanggan as $pel)
                                 <tr>
-                                    <td>{{$k->kasirID}}</td>
-                                    <td>{{$k->nama_kasir}}</td>
-                                    <td>{{$k->username}}</td>
-                                    <td>{{$k->password}}</td>
-                                    <td>{{$k->telepon}}</td>
+                                    <td>{{$pel->pelangganID}}</td>
+                                    <td>{{$pel->nama_pelanggan}}</td>
+                                    <td>{{$pel->alamat}}</td>
+                                    <td>{{$pel->telepon}}</td>
                                     <td>
-                                        <a href="{{url('EKasir/'.$k->kasirID)}}"><button class="btn btn-warning"><i class="bi bi-pencil" style="color: white"></i></button></a>
-                                        <a href="{{url('deleteKasir/'.$k->kasirID)}}"><button class="btn btn-danger"><i class="bi bi-trash" style="color: white"></i></button></a>
+                                        <a href="{{url('EPelanggan/'.$pel->pelangganID)}}"><button class="btn btn-warning"><i class="bi bi-pencil" style="color: white"></i></button></a>
+                                        <a href="{{url('deletePelanggan/'.$pel->pelangganID)}}"><button class="btn btn-danger"><i class="bi bi-trash" style="color: white"></i></button></a>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                       </table>
-                      
+                      {{$pelanggan->links()}}
                     </div>
                     {{-- Table --}}
                 </div>

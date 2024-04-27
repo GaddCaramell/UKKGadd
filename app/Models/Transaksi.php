@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Transaksi extends Model
@@ -20,6 +21,11 @@ class Transaksi extends Model
 
     public function Produk(): HasMany{
         return $this->hasMany(Produk::class,'produkID','produkID');
+    }
+
+    public function Penjualan(): BelongsTo
+    {
+        return $this->belongsTo(Penjualan::class,'penjualanID','penjualanID');
     }
     
 }

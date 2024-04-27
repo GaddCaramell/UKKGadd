@@ -32,47 +32,67 @@
 
             <div class="container">
                 <div class="card-body shadow-lg my-3">
-                    <form class="row g-3">
+                    <form action="{{url('simpanTransaksi')}}" method="POST" class="row g-3">
+                        @csrf
+                        <div class="col-md-6">
+                            <label for="totalBarang" class="form-label">ID Pelanggan</label>
+                            <select class="form-select" name="pelangganID">
+                                @foreach($pelanggan as $p)
+                                <option value="{{$p->pelangganID}}">{{$p->nama_pelanggan}}</option>
+                                @endforeach
+                            </select>
+                          </div>
+                        <div class="col-md-6">
+                            <label for="totalBarang" class="form-label">Tanggal Transaksi</label>
+                            <input type="date" class="form-control" id="tanggalTransaksi" name="tanggalTransaksi">
+                          </div>
                         <div class="col-md-6">
                             <label for="">Nama Produk</label>
-                            <select class="form-select" name="namaProduk">
-                                <option value=""></option>
+                            <select class="form-select" name="produkID">
+                                @foreach($produk as $pro)
+                                <option value="{{$pro->produkID}}">{{$pro->namaProduk}} | Rp.{{$pro->hargaProduk}}</option>
+                                @endforeach
                               </select>
                         </div>
-                        <div class="col-md-6">
-                          <label for="totalBarang" class="form-label">Tanggal Penjualan</label>
-                          <input type="date" class="form-control" id="tanggalPenjualan" name="tanggalPenjualan">
+                        <div class="col-md-2">
+                          <label for="jumlahBarang" class="form-label">Jumlah Beli</label>
+                          <input type="number" class="form-control" id="jumlahBarang" name="jumlahBarang">
                         </div>
                         <div class="col-md-2">
-                          <label for="totalBarang" class="form-label">Harga satuan</label>
-                          <input type="text" class="form-control" id="hargaSatuan" name="hargaSatuan" readonly>
-                        </div>
-                        <div class="col-md-2">
-                          <label for="inputAddress" class="form-label">Jumlah Barang</label>
-                          <input type="text" class="form-control" id="jumlahBarang">
-                        </div>
-                        <div class="col-md-2">
-                          <label for="totalHarga" class="form-label">Subtotal</label>
-                          <input type="text" class="form-control" id="" name="subtotal"  readonly>
-                        </div>
-                        <div class="col-md-2">
-                          <label for="totalHarga" class="form-label">Total Harga</label>
-                          <input type="text" class="form-control" id="" name="totalHarga"  readonly>
-                        </div>
-
-                        <table class="table table-bordered">
+                            <label for="totalHarga" class="form-label">Total Harga</label>
+                            <input type="text" class="form-control" id="" name="totalHarga">
+                          </div>
+                          <table class="table table-responsive">
                             <thead>
                                 <tr>
-                                    <th>Nama Produk</th>
-                                    <th>Harga Satuan</th>
-                                    <th>Jumlah Barang</th>
+                                    <th>Penjualan ID</th>
+                                    <th>Pelanggan ID</th>
+                                    <th>Tanggal Penjualan</th>
+                                    <th>Produk ID</th>
+                                    <th>Jumlah Pembelian</th>
+                                    <th>Total Harga</th>
                                 </tr>
                             </thead>
-                        </table>
-                        
+                            <tbody>
+                                @foreach ($transaksi as $t)
+                                    <tr>
+                                        <td>{{$t->transaksiID}}</td>
+                                        <td>{{$t->pelangganID}}</td>
+                                        <td>{{$t->tanggalTransaksi}}</td>
+                                        <td>{{$t->produkID}}</td>
+                                        <td>{{$t->jumlahBarang}}</td>
+                                        <td>{{$t->totalHarga}}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                          </table>
+                        <div class="text-end"">
+                           <button class="btn btn-success" type="submit" style="width:20%">Bayar</button>
+                          </div>
                       </form>
                 </div>
             </div>
+           
 
             {{-- Data Transaksi --}}
             

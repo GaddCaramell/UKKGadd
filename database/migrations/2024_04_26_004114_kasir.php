@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('kasir',function (Blueprint $table){
             $table->integer('kasirID')->autoIncrement();
             $table->string('nama_kasir');
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('password');
-            $table->string('telepon');
+            $table->string('telepon')->unique();
+            $table->enum('role',['Admin','Kasir']);
             $table->timestamps();
         });
     }

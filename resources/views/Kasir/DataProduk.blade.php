@@ -1,5 +1,5 @@
-@extends('Sidebar')
-@section('Sidebarr')
+@extends('SidebarKasir')
+@section('SidebarCashier')
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
@@ -69,7 +69,7 @@
                                     <td>{{$prod->hargaProduk}}</td>
                                     <td>{{$prod->stok}}</td>
                                     <td>
-                                        <a href="{{url('/'.$prod->produkID)}}"><button class="btn btn-warning"><i class="bi bi-pencil" style="color: white"></i></button></a>
+                                        <a href="{{url('EDProduk/'.$prod->produkID)}}"><button class="btn btn-warning"><i class="bi bi-pencil" style="color: white"></i></button></a>
                                         <a href="{{url('deleteProduk/'.$prod->produkID)}}"><button class="btn btn-danger"><i class="bi bi-trash" style="color: white"></i></button></a>
                                     </td>
                                 </tr>

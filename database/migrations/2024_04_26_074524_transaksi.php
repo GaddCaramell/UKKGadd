@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('transaksi',function (Blueprint $table){
             $table->integer('transaksiID')->autoIncrement();
+            $table->integer('pelangganID');
             $table->integer('produkID');
             $table->date('tanggalTransaksi');
             $table->integer('jumlahBarang');
-            $table->integer('subtotal');
             $table->integer('totalHarga');
             $table->timestamps();
         });

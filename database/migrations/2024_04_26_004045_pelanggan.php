@@ -15,7 +15,7 @@ return new class extends Migration
             $table->integer('pelangganID')->autoIncrement();
             $table->string('nama_pelanggan',100);
             $table->text('alamat');
-            $table->string('telepon');
+            $table->string('telepon')->unique();
             $table->timestamps();
         });
     }

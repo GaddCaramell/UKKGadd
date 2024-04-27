@@ -30,7 +30,25 @@
           
             {{-- Data Transaksi --}}
 
+            <div class="container">
+                <div class="card-body shadow my-3">
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Penjualan ID</th>
+                                <th>Pelanggan ID</th>
+                                <th>Produk ID</th>
+                                <th>Tanggal Penjualan</th>
+                                <th>Total Harga</th>
+                                <th>Pelanggan ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
             {{-- Data Transaksi --}}
             

@@ -123,13 +123,16 @@
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{url('DashKasir')}}" aria-expanded="false"><i class="mdi mdi-home"></i><span
-                                    class="hide-menu"> Dashboard</span></a></li>
+                                href="{{url('KasirDashboard')}}" aria-expanded="false"><i class="bi bi-currency-dollar"></i><span
+                                    class="hide-menu"> Kasir</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{url('DProduk')}}" aria-expanded="false"><i class="bi bi-dropbox"></i><span
                                     class="hide-menu"> Data Produk</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{url('HistoriTransaksi')}}" aria-expanded="false"><i class="bi bi-universal-access"></i><span
+                                href="{{url('DPelanggan')}}" aria-expanded="false"><i class="bi bi-people-fill"></i><span
+                                    class="hide-menu"> Data Pelanggan</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="{{url('HistoriTransaksi')}}" aria-expanded="false"><i class="bi bi-journal"></i><span
                                     class="hide-menu"> Histori Transaksi</span></a></li>
                     </ul>
 

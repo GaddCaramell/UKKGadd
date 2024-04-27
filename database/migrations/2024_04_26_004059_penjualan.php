@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('penjualan',function (Blueprint $table){
             $table->integer('penjualanID')->autoIncrement();
-            $table->date('tanggalPenjualan');
-            $table->integer('totalHarga');
             $table->integer('pelangganID');
+            $table->date('tanggalPenjualan');
+            $table->integer('totalBayar');
             $table->timestamps();
         });    
     }
